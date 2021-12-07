@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Results</title>
+    </head>
+    <body>
+        <h1>Results</h1>
+            <script>
+                async function getResults()
+                {
+                    const response = await fetch('/result');
+                    const data = await response.json();
+
+                    for (item of data)
+                    {
+                        const root = document.createElement('div');
+                        const id = document.createElement('div');
+                        const fname = document.createElement('div');
+                        const mname = document.createElement('div');
+                        const lname = document.createElement('div');
+                        const num = document.createElement('div');
+                        const stat = document.createElement('div');
+                        const house = document.createElement('div');
+                        const other = document.createElement('div');
+                        const address = document.createElement('div');
+                        
+                        id.textContent = `ID: ${item.id}`                 
+                        fname.textContent = `First Name: ${item.firstname}`                     
+                        mname.textContent = `Middle Name: ${item.middlename}`                       
+                        lname.textContent = `Last Name: ${item.lastname}`                     
+                        num.textContent = `Phone Number: ${item.phoneNumber}`                        
+                        stat.textContent = `Income Status: ${item.incomeStatus}`                   
+                        house.textContent = `Number in Household: ${item.numPeopleofHousehold}`                          
+                        other.textContent = `Other Services: ${item.otherServices}`                     
+                        address.textContent = `Address: ${item.address}`
+
+                        root.append(id,fname,mname,lname,num,stat,house,other,address);
+                        document.body.append(root);
+                    }
+                }
+                async function getData()
+                {
+                    const response = await fetch('/results');
+                    const data = await response.json();
+
+                    for (item of data)
+                    {
+                        const root = document.createElement('div');
+                        const id = document.createElement('div');
+                        const fname = document.createElement('div');
+                        const mname = document.createElement('div');
+                        const lname = document.createElement('div');
+                        const email = document.createElement('div');
+                        const num = document.createElement('div');
+                        
+                        id.textContent = `ID: ${item.id}`                 
+                        fname.textContent = `First Name: ${item.firstname}`                     
+                        mname.textContent = `Middle Name: ${item.middlename}`                       
+                        lname.textContent = `Last Name: ${item.lastname}`                     
+                        email.textContent = `Email: ${item.email}`
+                        num.textContent = `Phone Number: ${item.phone}`
+
+                        root.append(id,fname,mname,lname,email,num);
+                        document.body.append(root);
+                    }
+                }
+                getResults().then(data => {data});
+                getData().then(data => {data});
+            </script>
+            <form action="/update.html">
+                <div>
+                    <input type="submit" value="Update"><br>
+                </div>
+            </form>
+            <form action="/home.html">
+                <div>
+                    <input type="submit" value="Delete"><br>
+                </div>
+            </form>
+        </table>
+    </body>
+</html>
