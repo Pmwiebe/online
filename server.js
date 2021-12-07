@@ -2,7 +2,6 @@
 
 const path = require("path");
 const express = require('express');
-const app = express();
 var http = require('http');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
@@ -12,6 +11,7 @@ app.use('/', express.static('pages'));
 
 const mysql = require('mysql');
 const { isNull } = require("util");
+const { response } = require("express");
 
 let con = mysql.createConnection({
     host: 'localhost',
@@ -19,9 +19,6 @@ let con = mysql.createConnection({
     user: 'root',
     password: 'admin'
 });
-
-const PORT = 8080;
-const HOST = '0.0.0.0';
 
 app.get('/login', (req,res) => {
 
@@ -135,5 +132,7 @@ app.post("/addnew.html", (req,res) => {
 })
 
 
-app.listen(process.env.PORT);
-console.log("up and running");
+http.createServer((req,res) => {
+    response.writeHead(200, {"Content-Type": "text/plain"})
+    response.end();
+}).listen(process.env.PORT)
