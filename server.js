@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 var http = require('http');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static('pages'));
