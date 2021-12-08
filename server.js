@@ -3,6 +3,7 @@
 const path = require("path");
 const express = require('express');
 var http = require('http');
+const app = express();
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 
