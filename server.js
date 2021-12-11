@@ -134,5 +134,4 @@ app.post("/addnew.html", (req,res) => {
 })
 
 http.createServer((req,res) => {
-    res.send("Running")
 }).listen(process.env.PORT)
