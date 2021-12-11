@@ -134,6 +134,5 @@ app.post("/addnew.html", (req,res) => {
 })
 
 http.createServer((req,res) => {
-    res.writeHead(200, {"Content-Type": "text/plain"})
-    res.end("Up and running\n");
+    res.send("Running")
 }).listen(process.env.PORT)
