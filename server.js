@@ -19,7 +19,9 @@ let con = mysql.createConnection({
     user: 'root',
     password: 'admin'
 });
-
+app.get("/", (req,res) => {
+    res.render('pages/home')
+})
 app.get('/login', (req,res) => {
 
     con.connect((err) => {
