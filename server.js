@@ -20,7 +20,7 @@ let con = mysql.createConnection({
     password: 'admin'
 });
 app.get("/", (req,res) => {
-    res.render('pages/home')
+    res.render('pages/index')
 })
 app.get('/login', (req,res) => {
 
