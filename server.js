@@ -23,7 +23,7 @@ let con = mysql.createConnection({
 app.set('view engine', 'ejs')
 
 app.get('/', (req,res) => {
-    res.render('pages/home')
+    res.render('pages/main')
 })
 
 app.get('/login', (req,res) => {
@@ -137,4 +137,4 @@ app.post("/addnew.html", (req,res) => {
     res.redirect("/customer.html")
 })
 
-app.listen(proccess.env.port)
+app.listen("8080")
