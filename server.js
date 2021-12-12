@@ -50,7 +50,7 @@ app.post("/staff.html", (req,res) => {
     })
 })
 
-app.post("/login.html", (req,res) => {
+app.post("/login", (req,res) => {
     var username = req.body.uname;
     var password = req.body.psw;
     var statement = `SELECT * FROM signin where username='${username}'`
@@ -61,14 +61,14 @@ app.post("/login.html", (req,res) => {
             const verified = bcrypt.compareSync(password, psw_hash);
             if(verified)
             {
-                res.redirect("/home.html")
+                res.redirect("/home")
             }
             else{
-                res.redirect("/login.html")
+                res.redirect("/login")
             }
         }
         else{
-            res.redirect("/login.html")
+            res.redirect("/login")
         }
     })
 })
