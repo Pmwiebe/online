@@ -19,9 +19,7 @@ let con = mysql.createConnection({
     user: 'root',
     password: 'admin'
 });
-app.get("/", (req,res) => {
-    res.render('pages/home')
-})
+
 app.get('/login', (req,res) => {
 
     con.connect((err) => {
@@ -133,4 +131,8 @@ app.post("/addnew.html", (req,res) => {
     res.redirect("/customer.html")
 })
 
-app.listen(process.env.PORT)
+http.createServer((req,res) => {
+    app.get("/", (request,result) => {
+        result.render('pages/home')
+    })
+}).listen([process.env.PORT])
