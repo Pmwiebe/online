@@ -61,14 +61,14 @@ app.post("/login", (req,res) => {
             const verified = bcrypt.compareSync(password, psw_hash);
             if(verified)
             {
-                res.redirect("/home")
+                res.render("/home")
             }
             else{
-                res.redirect("/login")
+                res.render("/login")
             }
         }
         else{
-            res.redirect("/login")
+            res.render("/login")
         }
     })
 })
