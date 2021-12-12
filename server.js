@@ -133,5 +133,4 @@ app.post("/addnew.html", (req,res) => {
     res.redirect("/customer.html")
 })
 
-http.createServer((req,res) => {
-}).listen(process.env.PORT)
+app.listen(process.env.PORT)
