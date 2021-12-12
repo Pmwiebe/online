@@ -35,6 +35,7 @@ app.get('/login', (req,res) => {
     con.query("USE CBO;", (err, result) => {
         if (err) {console.log(err)}
     })
+    res.render('pages/login')
 });
 
 app.post("/staff.html", (req,res) => {
