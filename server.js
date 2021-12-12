@@ -20,6 +20,12 @@ let con = mysql.createConnection({
     password: 'admin'
 });
 
+app.set('view engine', 'ejs')
+
+app.get('/', (req,res) => {
+    res.render('pages/home')
+})
+
 app.get('/login', (req,res) => {
 
     con.connect((err) => {
@@ -131,8 +137,4 @@ app.post("/addnew.html", (req,res) => {
     res.redirect("/customer.html")
 })
 
-http.createServer((req,res) => {
-    app.get("/", (request,result) => {
-        result.render('pages/home')
-    })
-}).listen(process.env.PORT)
+app.listen(proccess.env.port)
